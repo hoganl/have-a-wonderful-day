@@ -13,30 +13,35 @@ var jogOutcomeBad =  ['The ' + animal + ' starts to chase you.  You better speed
 //scene 2 arrays
 var vehicleArray = ['moped', 'trolly', 'bus', 'volkswagen beetle'];
 var sidewalkArray = ['bicyclist', 'skateboarder', 'scooter', 'runner'];
-var waitkOutcomeGood = ['',''];
-var waitOutcomeBad = ['',''];
-var jwalkOutcomeGood = ['The light turns quickly and you manage to cross the street with out getting smashed by a bus.  Cause for celebration.  Woohoo!','A police officer comes out of nowhere and stops traffic so you can cross without incident.  Lucky break!'];
-var jwalkOutcomeBad = ['Where did all these cars come from?  It literally takes 10 years to cross the street.  There goes your morning!','You step into the street and a bicyclist nearly runs you over.  Watch out, bicycle rights dude!  10 feet rule!'];
+var crossOutcomeGood = ['The light turns quickly and you manage to cross the street with out getting smashed by a bus.  Cause for celebration. Woohoo!','A police officer comes out of nowhere and stops traffic so you can cross without incident.  Lucky break!'];
+var crossOutcomeBad = ['Where did all these cars come from?  It literally takes 10 years to cross the street.  There goes your morning!','You step into the street and a bicyclist nearly runs you over. Watch out, bicycle rights dude!  10 feet rule!'];
+var jwalkOutcomeGood = ['You step into the street and the traffic parts.  You cross without incident.  Lucky break!','A kind Subaru Outback driver stops traffic so you can cross safely. Living that PNW life!'];
+var jwalkOutcomeBad = ['You step into the street and nearly lose your foot to a metro bus.  Watch out!','As you begin crossing someone tosses their half eaten breakfast sandwich at you as they speed by. Jaywalking, not only dangerous but potentially messy!'];
 //scene 3 arrays
 var hotArray = ['black coffee', 'americana', 'vanlla late', 'black tea'];
 var coldArray = ['fruit smoothie', 'iced coffee', 'protien shake', 'iced tea'];
 var coldOutcomeGood = ['You enjoy the best cold beverage you’ve ever had.  You are having an excellent time!','Your frosty beverage is outstanding.  What a wonderful morning!'];
 var coldOutcomeBad = ['You are so thirsty after your jog that you drink too quickly and get brain freeze!  Ouch!','You spill your drink on the floor and slip causing pandemonium in the cafe while angering an entire line of coffee deprived customers.'];
-var hotOutcomeGood = ['Wow, now that\’s damn fine coffee!','Now that\’s delicious coffee.  Black as a moonless night!'];
-var hotOutcomeBad = ['You spill your piping hot drink on your foot. Oof, that\’s gonna hurt!','Tick-tock, tick-tock, this is taking all day.  So much for a hot beverage.  You receive a luke-warm coffee.  You are not exactly having the best time.'];
+var hotOutcomeGood = ['Wow, now that’s damn fine coffee!','Now that’s delicious coffee.  Black as a moonless night!'];
+var hotOutcomeBad = ['You spill your piping hot drink on your foot. Oof, that’s gonna hurt!','Tick-tock, tick-tock, this is taking all day.  So much for a hot beverage.  You receive a luke-warm coffee.  You are not exactly having the best time.'];
 //scene 4 arrays
 var groceryArray = ['unicorn meat', 'dragon meat', 'bublegum meatballs', 'kangaroo jerky', 'jellyfish noodles', 'spam snacks', 'smoked rattlesnake'];
 var birdsArray = ['cockatoos', 'seaguls', 'penguins', 'owls'];
+var walkOutcomeGood = ['You enjoy the best walk of your life. It’s a beautiful day!','It’s a beautiful day and you enjoy the walk of a lifetime. Lucky you!'];
+var walkOutcomeBad = ['Watch out! An errant flock of ' + bird + ' attacks you and steals your loaf of bread.','Look out!  A flock of ' + bird + 's circles overhead. They want to steal your bread. You better get home quickly!'];
+var busOutcomeGood = ['You meet the most amazing people on your bus ride home. What a wonderful day you are having. Just peachy!','You download the latest version of the BusMall app. It is a truly life changing experience!'];
+var busOutcomeBad = ['You got on the wrong bus and take a three hour bus ride. Not having the best time are we?','The bus is packed so you have to ride standing up while balancing your groceries on your head!'];
 
+//final array data will be pushed() into
 var outcomeArray = [];
 
 var scene1 = {
   name: 'park',
   //subject to change
   filepath: 'park.jpg',
-  //this is the story text
   var color = random(colorArray),
   var animal = random(animalArray),
+  //this is the story text
   text: 'You are in a park and you see a ' + color + ' ' + animal + '... etc',
   option1Text: 'Pet the ' + animal + '.',
   option2Text: 'Keep jogging.',
