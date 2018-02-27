@@ -20,6 +20,10 @@ var jwalkOutcomeBad = ['Where did all these cars come from?  It literally takes 
 //scene 3 arrays
 var hotArray = ['black coffee', 'americana', 'vanlla late', 'black tea'];
 var coldArray = ['fruit smoothie', 'iced coffee', 'protien shake', 'iced tea'];
+var coldOutcomeGood = ['You enjoy the best cold beverage you’ve ever had.  You are having an excellent time!','Your frosty beverage is outstanding.  What a wonderful morning!'];
+var coldOutcomeBad = ['You are so thirsty after your jog that you drink too quickly and get brain freeze!  Ouch!','You spill your drink on the floor and slip causing pandemonium in the cafe while angering an entire line of coffee deprived customers.'];
+var hotOutcomeGood = ['Wow, now that\’s damn fine coffee!','Now that\’s delicious coffee.  Black as a moonless night!'];
+var hotOutcomeBad = ['You spill your piping hot drink on your foot. Oof, that\’s gonna hurt!','Tick-tock, tick-tock, this is taking all day.  So much for a hot beverage.  You receive a luke-warm coffee.  You are not exactly having the best time.'];
 //scene 4 arrays
 var groceryArray = ['unicorn meat', 'dragon meat', 'bublegum meatballs', 'kangaroo jerky', 'jellyfish noodles', 'spam snacks', 'smoked rattlesnake'];
 var birdsArray = ['cockatoos', 'seaguls', 'penguins', 'owls'];
