@@ -28,11 +28,12 @@ nav {
 }
 
 h1 {
-    display: inline-block;
-    margin-left: 25%;
+    display: inherit;
     margin-top: 20px;
     font-size: 50px;
     color: #18121E;
+    text-align: center;
+    width: 85%;
 }
 
 #aboutUs {
