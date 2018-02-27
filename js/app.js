@@ -25,15 +25,15 @@ var outcomeArray = [];
 
 
 var scene1 = {
-  name = 'park',
+  name: 'park',
   //subject to change
-  filepath = 'park.jpg',
+  filepath: 'park.jpg',
   //this is the story text
   var color = random(colorArray),
   var animal = random(animalArray),
-  text = 'You are in a park and you see a ' + color + ' ' + animal + '... etc',
-  option1Text = 'Pet the ' + animal + '.',
-  option2Text = 'Keep jogging.',
+  text: 'You are in a park and you see a ' + color + ' ' + animal + '... etc',
+  option1Text: 'Pet the ' + animal + '.',
+  option2Text: 'Keep jogging.',
   //might need to move this to event handler to change happinessValue
   outcome1Text = random('petOutcome' + random(goodBadArray)),
   outcome2Text = random('jogOutcome' + random(goodBadArray)),
