@@ -13,6 +13,10 @@ var jogOutcomeBad =  ['The ' + animal + ' starts to chase you.  You better speed
 //scene 2 arrays
 var vehicleArray = ['moped', 'trolly', 'bus', 'volkswagen beetle'];
 var sidewalkArray = ['bicyclist', 'skateboarder', 'scooter', 'runner'];
+var waitOutcomeGood = ['The light turns quickly and you manage to cross the street with out getting smashed by a bus.  Cause for celebration.  Woohoo!','A police officer comes out of nowhere and stops traffic so you can cross without incident.  Lucky break!'];
+var waitOutcomeBad = ['',''];
+var jwalkOutcomeGood = ['',''];
+var jwalkOutcomeBad = ['',''];
 //scene 3 arrays
 var hotArray = ['black coffee', 'americana', 'vanlla late', 'black tea'];
 var coldArray = ['fruit smoothie', 'iced coffee', 'protien shake', 'iced tea'];
@@ -21,8 +25,6 @@ var groceryArray = ['unicorn meat', 'dragon meat', 'bublegum meatballs', 'kangar
 var birdsArray = ['cockatoos', 'seaguls', 'penguins', 'owls'];
 
 var outcomeArray = [];
-
-
 
 var scene1 = {
   name: 'park',
@@ -38,6 +40,9 @@ var scene1 = {
   outcome1Text = random('petOutcome' + random(goodBadArray)),
   outcome2Text = random('jogOutcome' + random(goodBadArray)),
 }
+//button event listener
+var option1Button = document.getElementById('option1');
+
 
 
 // event handler & local storage for user name
