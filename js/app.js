@@ -13,10 +13,10 @@ var jogOutcomeBad =  ['The ' + animal + ' starts to chase you.  You better speed
 //scene 2 arrays
 var vehicleArray = ['moped', 'trolly', 'bus', 'volkswagen beetle'];
 var sidewalkArray = ['bicyclist', 'skateboarder', 'scooter', 'runner'];
-var waitOutcomeGood = ['The light turns quickly and you manage to cross the street with out getting smashed by a bus.  Cause for celebration.  Woohoo!','A police officer comes out of nowhere and stops traffic so you can cross without incident.  Lucky break!'];
+var waitkOutcomeGood = ['',''];
 var waitOutcomeBad = ['',''];
-var jwalkOutcomeGood = ['',''];
-var jwalkOutcomeBad = ['',''];
+var jwalkOutcomeGood = ['The light turns quickly and you manage to cross the street with out getting smashed by a bus.  Cause for celebration.  Woohoo!','A police officer comes out of nowhere and stops traffic so you can cross without incident.  Lucky break!'];
+var jwalkOutcomeBad = ['Where did all these cars come from?  It literally takes 10 years to cross the street.  There goes your morning!','You step into the street and a bicyclist nearly runs you over.  Watch out, bicycle rights dude!  10 feet rule!'];
 //scene 3 arrays
 var hotArray = ['black coffee', 'americana', 'vanlla late', 'black tea'];
 var coldArray = ['fruit smoothie', 'iced coffee', 'protien shake', 'iced tea'];
