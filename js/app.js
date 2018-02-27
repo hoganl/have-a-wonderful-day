@@ -2,6 +2,7 @@
 
 var nameForm = document.getElementById('nameForm');
 var nameInput = document.getElementById('nameInput');
+var intro = document.getElementById('intro');
 var userName = '';
 
 var colorArray = ['orange', 'blue', 'pink', 'purple'];
@@ -20,6 +21,7 @@ function updateUserName(e) {
   userName = nameInput.value;
   localStorage.setItem('userName', JSON.stringify(userName));
   e.target.reset();
+  nameForm.style.display = 'none';
 }
 
 if (localStorage.getItem('userName')) {
