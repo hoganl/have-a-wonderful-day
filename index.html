@@ -18,72 +18,29 @@
         </nav>
     </header>
     <main>
-        <section>
+        <section id="home">
             <h1>Have a Wonderful Day!</h1>
             <p>Hello <input type="text">, it's time to wake up.</p>
-            <button type="button">Wake Up!</button>
+            <button id ="wakeUp" type="button">Wake Up!</button>
         </section>
         <section>
-            <div id="apt1">
-                <!-- backgound image -->
-                <!-- audio clip -->
-                <canvas></canvas>
-                <button type="submit">Start your day!</button>
-                <img "sprite1">
-                <img "sprite2">
-                <img "sprite3">
+            <div id="apt">
+                <canvas id="intro"></canvas>
+                <button id="start" type="submit" name="startyourday">Start your day!</button>
+                <img id="tiredSprite" src="img/tired-sprite.jpg" />
             </div>
-            <div id="park">
-                <!-- backgound image -->
-                <!-- audio clip -->
-                <canvas></canvas>
+            <div id="scenes">
+                <canvas id="scenario"></canvas>
                 <div>
-                    <button type="button"name="option1">Pet</button>
-                    <button type="button"name="option2">Run Away</button>
+                    <button id="option1" type="button" name="option1"></button>
+                    <button id="option2" type="button" name="option2"></button>
                 </div>
-                <button type="button" name="nextScene">Next Scene</button>
-                <img "sprite1">
-                <img "sprite2">
-                <img "sprite3">
-            </div>
-            <div id="crossWalk">
-                <!-- backgound image -->
-                <!-- audio clip -->
-                <canvas></canvas>
-                <div>
-                    <button type="button" name="option1">Wait</button>
-                    <button type="button" name="option2">Cross</button>
+                <button id="nextScene" type="button" name="nextScene">Next Scene</button>
+                <div id="spriteImgs">
+                    <img id="happySprite" src="img/happy-sprite.jpg" />
+                    <img id="neutralSprite" src="img/neutral-sprite.jpg" />
+                    <img id="sadSprite" src="img/sad-sprite.jpg" />
                 </div>
-                <button type="button" name="nextScene">Next Scene</button>
-                <img "sprite1">
-                <img "sprite2">
-                <img "sprite3">
-            </div>
-            <div id="cafe">
-                <!-- backgound image -->
-                <!-- audio clip -->
-                <canvas></canvas>
-                <div>
-                    <button type="button" name="option1">Hot Drink</button>
-                    <button type="button" name="option2">Cold Drink</button>
-                </div>
-                <button type="button" name="nextScene">Next Scene</button>
-                <img "sprite1">
-                <img "sprite2">
-                <img "sprite3">
-            </div>
-            <div id="market">
-                <!-- backgound image -->
-                <!-- audio clip -->
-                <canvas></canvas>
-                <div>
-                    <button type="button" name="option1">Walk</button>
-                    <button type="button" name="option2">Bus</button>
-                </div>
-                <button type="button" name="nextScene">Next Scene</button>
-                <img "sprite1">
-                <img "sprite2">
-                <img "sprite3">
             </div>
         </section>
     </main>
