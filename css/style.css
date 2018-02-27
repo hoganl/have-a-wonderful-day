@@ -2,16 +2,27 @@
     border: 1px dashed red;
 }
 
-header {
-    height: 200px;
+header, footer {
+    height: 100px;
 }
 
 nav {
-    margin: 0 auto;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
 }
 
 ul {
     display: inline-block;
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    padding-left: 0px;
+    margin: 0px;
+}
+
+li {
+    margin-top: 20px;
 }
 
 #index {
@@ -20,14 +31,20 @@ ul {
 
 #title {
     display: inline-block;
+    margin-left: 35%;
 }
 
 #aboutUs {
     float: right;
 }
 
-li a {
-    text-decoration: none;
+nav a {
+    background: #EAC67A;
+    border:2px solid #233237;
+    color:#18121E;
+    text-align:center;
+    white-space:nowrap;
+    padding: 10px;
 }
 
 #home {
