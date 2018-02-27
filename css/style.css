@@ -75,3 +75,11 @@ main {
     height: 50px;
     width: 200px;
 }
+
+#apt {
+    background-image: url("img/bedroom.jpg");
+}
+
+#scenes {
+    display: none;
+}
