@@ -3,6 +3,8 @@
 var nameForm = document.getElementById('nameForm');
 var nameInput = document.getElementById('nameInput');
 var intro = document.getElementById('intro');
+var apt = document.getElementById('apt');
+var startButton = document.getElementById('startButton');
 var userName = '';
 
 var colorArray = ['orange', 'blue', 'pink', 'purple'];
@@ -15,6 +17,7 @@ var sidewalkArray = ['bicyclist', 'skateboarder', 'scooter', 'runner'];
 var birdsArray = ['cockatoos', 'seaguls', 'penguins', 'owls'];
 
 nameForm.addEventListener('submit', updateUserName);
+startButton.addEventListener('click', renderSceneOne);
 
 function updateUserName(e) {
   e.preventDefault();
@@ -26,6 +29,10 @@ function updateUserName(e) {
 
 if (localStorage.getItem('userName')) {
   userName = JSON.parse(localStorage.getItem('userName'));
+}
+
+function renderSceneOne() {
+  apt.style.display = 'none';
 }
 
 // returns a random value from an array regardless of length
