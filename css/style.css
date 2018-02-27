@@ -5,3 +5,37 @@
 header {
     height: 200px;
 }
+
+nav {
+    margin: 0 auto;
+}
+
+ul {
+    display: inline-block;
+}
+
+#index {
+    float: left;
+}
+
+#title {
+    display: inline-block;
+}
+
+#aboutUs {
+    float: right;
+}
+
+li a {
+    text-decoration: none;
+}
+
+#home {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+#wakeUp {
+    background-color: yellow;
+}
