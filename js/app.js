@@ -4,6 +4,15 @@ var nameForm = document.getElementById('nameForm');
 var nameInput = document.getElementById('nameInput');
 var userName = '';
 
+var colorArray = ['orange', 'blue', 'pink', 'purple'];
+var animalArray = ['dog', 'honey badger', 'elephant', 'trash panda'];
+var groceryArray = ['unicorn meat', 'dragon meat', 'bublegum meatballs', 'kangaroo jerky', 'jellyfish noodles', 'spam snacks', 'smoked rattlesnake'];
+var hotArray = ['black coffee', 'americana', 'vanlla late', 'black tea'];
+var coldArray = ['fruit smoothie', 'iced coffee', 'protien shake', 'iced tea'];
+var vehicleArray = ['moped', 'trolly', 'bus', 'volkswagen beetle'];
+var sidewalkArray = ['bicyclist', 'skateboarder', 'scooter', 'runner'];
+var birdsArray = ['cockatoos', 'seaguls', 'penguins', 'owls'];
+
 nameForm.addEventListener('submit', updateUserName);
 
 function updateUserName(e) {
