@@ -1,5 +1,5 @@
 * {
-    /* border: 1px dashed red; */
+    outline: 1px dashed red;
 }
 
 header, footer {
@@ -93,8 +93,24 @@ main {
     width: 200px;
 }
 
+.story {
+    width: 100%;
+}
+
 #apt {
-    background-image: url("img/bedroom.jpg");
+    background-image: url("../img/bedroom.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 700px;
+}
+
+#intro {
+    margin-top: 10%;
+    width: 600px;
+}
+
+#story {
+
 }
 
 #scenes {
