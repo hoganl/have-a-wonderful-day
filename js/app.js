@@ -7,10 +7,10 @@ var goodBadArray = ['Good', 'Bad'];
 //scene 1 arrays
 var colorArray = ['orange', 'blue', 'pink', 'purple'];
 var animalArray = ['dog', 'honey badger', 'elephant', 'trash panda'];
-var petOutcomeGood = ['The ' + animal + ' is friendly!  You have a great time playing with the + (random animal) + and then continue with your lovely day!', 'The ' + animal + ' really enjoys the attention and decides to follow you home!  Good luck with that!'];
-var petOutcomeBad = ['Watch out!  The' + animal + ' bites your hand.  You are gonna need a big bandaid!', 'Great, now you are going to smell like ' + animal + ' all day!'];
-var jogOutcomeGood = ['The ' + animal + ' looks sad but waves goodbye as you pass.  You literally have a heart of stone.', 'The ' + animal + 'scratches its back on a tree and only wishes it could be as cool as you.'];
-var jogOutcomeBad =  ['The ' + animal + ' starts to chase you.  You better speed up slow poke!', 'The ' + animal + ' bites your foot as you run past.  That\'s gonna leave a mark!'];
+var petOutcomeGood = ['The ' + this.animal + ' is friendly!  You have a great time playing with the + (random animal) + and then continue with your lovely day!', 'The ' + this.animal + ' really enjoys the attention and decides to follow you home!  Good luck with that!'];
+var petOutcomeBad = ['Watch out!  The' + this.animal + ' bites your hand.  You are gonna need a big bandaid!', 'Great, now you are going to smell like ' + this.animal + ' all day!'];
+var jogOutcomeGood = ['The ' + this.animal + ' looks sad but waves goodbye as you pass.  You literally have a heart of stone.', 'The ' + this.animal + 'scratches its back on a tree and only wishes it could be as cool as you.'];
+var jogOutcomeBad =  ['The ' + this.animal + ' starts to chase you.  You better speed up slow poke!', 'The ' + this.animal + ' bites your foot as you run past.  That\'s gonna leave a mark!'];
 //scene 2 arrays
 var vehicleArray = ['moped', 'trolly', 'bus', 'volkswagen beetle'];
 var sidewalkArray = ['bicyclist', 'skateboarder', 'scooter', 'runner'];
@@ -29,7 +29,7 @@ var hotOutcomeBad = ['You spill your piping hot drink on your foot. Oof, that’
 var groceryArray = ['unicorn meat', 'dragon meat', 'bublegum meatballs', 'kangaroo jerky', 'jellyfish noodles', 'spam snacks', 'smoked rattlesnake'];
 var birdsArray = ['cockatoos', 'seaguls', 'penguins', 'owls'];
 var walkOutcomeGood = ['You enjoy the best walk of your life. It’s a beautiful day!','It’s a beautiful day and you enjoy the walk of a lifetime. Lucky you!'];
-var walkOutcomeBad = ['Watch out! An errant flock of ' + bird + ' attacks you and steals your loaf of bread.','Look out!  A flock of ' + bird + 's circles overhead. They want to steal your bread. You better get home quickly!'];
+var walkOutcomeBad = ['Watch out! An errant flock of ' + this.bird + ' attacks you and steals your loaf of bread.','Look out!  A flock of ' + this.bird + 's circles overhead. They want to steal your bread. You better get home quickly!'];
 var busOutcomeGood = ['You meet the most amazing people on your bus ride home. What a wonderful day you are having. Just peachy!','You download the latest version of the BusMall app. It is a truly life changing experience!'];
 var busOutcomeBad = ['You got on the wrong bus and take a three hour bus ride. Not having the best time are we?','The bus is packed so you have to ride standing up while balancing your groceries on your head!'];
 
@@ -40,16 +40,16 @@ var scene1 = {
   name: 'park',
   //subject to change
   filepath: 'park.jpg',
-  var color = random(colorArray),
-  var animal = random(animalArray),
+  color: random(colorArray),
+  animal: random(animalArray),
   //this is the story text
-  text: 'You are in a park and you see a ' + color + ' ' + animal + '... etc',
-  option1Text: 'Pet the ' + animal + '.',
+  text: 'You are in a park and you see a ' + this.color + ' ' + this.animal + '... etc',
+  option1Text: 'Pet the ' + this.animal + '.',
   option2Text: 'Keep jogging.',
   //might need to move this to event handler to change happinessValue
-  outcome1Text = random('petOutcome' + random(goodBadArray)),
-  outcome2Text = random('jogOutcome' + random(goodBadArray)),
-}
+  outcome1Text: random('petOutcome' + random(goodBadArray)),
+  outcome2Text: random('jogOutcome' + random(goodBadArray)),
+};
 //button event listener
 var option1Button = document.getElementById('option1');
 
@@ -57,16 +57,13 @@ var option1Button = document.getElementById('option1');
 
 var nameForm = document.getElementById('nameForm');
 var nameInput = document.getElementById('nameInput');
-var userName = '';
-
-nameForm.addEventListener('submit', updateUserName);
-
-var nameForm = document.getElementById('nameForm');
-var nameInput = document.getElementById('nameInput');
 var intro = document.getElementById('intro');
 var apt = document.getElementById('apt');
 var startButton = document.getElementById('startButton');
 var userName = '';
+
+nameForm.addEventListener('submit', updateUserName);
+
 
 var colorArray = ['orange', 'blue', 'pink', 'purple'];
 var animalArray = ['dog', 'honey badger', 'elephant', 'trash panda'];
@@ -85,7 +82,6 @@ function updateUserName(e) {
   userName = nameInput.value;
   localStorage.setItem('userName', JSON.stringify(userName));
   e.target.reset();
-
   nameForm.style.display = 'none';
 }
 
