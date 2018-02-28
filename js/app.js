@@ -47,13 +47,12 @@ function Scene (name, filepath, narrative, option1Text, option2Text) {
   this.outcome2Bad = [];
   this.outcome1Text = random(this['outcome1' + random(goodBadArray)]);
   this.option2Text = random(this['outcome2' + random(goodBadArray)]);
+  Scene.outcomeArray.push(this);
 }
 
 new Scene(
   'park',
-  //subject to change
   'img/park.jpg',
-  //this is the story text
   'You are feeling a little hungover from last night\'s adventures, so let\'s go for a jog. You head into the park and you see a ' + color + ' ' + animal + ' . Would you like to pet it, or keep jogging?',
   'Pet the ' + animal + '.',
   'Keep jogging.',
