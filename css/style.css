@@ -116,4 +116,7 @@ main {
 
 #scenes {
     display: none;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 700px;
 }
