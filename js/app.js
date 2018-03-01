@@ -111,27 +111,29 @@ new Scene(
   'You took the bus and it was beyond packed so you had to ride standing up while you balanced your groceries on your head!'
 );
 
-// nameForm.addEventListener('submit', updateUserName);
+nameForm.addEventListener('submit', updateUserName);
 startButton.addEventListener('click', renderSceneP1);
 optionButtons.addEventListener('click', renderSceneP2);
 nextSceneButton.addEventListener('click', renderSceneP1);
 
 function updateUserName(e) {
   e.preventDefault();
+  localStorage.clear();
   userName = nameInput.value;
-  localStorage.setItem('userName', JSON.stringify(userName));
+  localStorage.setItem('userName', userName);
   e.target.reset();
   nameForm.style.display = 'none';
 }
 
 if (localStorage.getItem('userName')) {
-  userName = JSON.parse(localStorage.getItem('userName'));
+  userName = localStorage.getItem('userName');
 }
 
 function renderSceneP1() {
   if (currentScene >= Scene.scenesArray.length) {
     window.location = 'summary.html';
     localStorage.setItem('outcomeArray', JSON.stringify(outcomeArray));
+    localStorage.setItem('happinessValue', JSON.stringify(happinessValue));
   }
   apt.style.display = 'none';
   scenes.style.display = 'block';
