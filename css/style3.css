@@ -91,13 +91,13 @@ div {
     text-align: left;
     overflow: visible;
     padding: 0.5vw;
-    height: 22.5vw;
+    height: 35vw;
     width: 18vw;
-    font-size: 0.9vw;
+    font-size: 1.1vw;
 }
 
 #mike {
-    bottom: 0vw;
+    top: 0vw;
     left: 0vw;
 }
 
@@ -114,7 +114,7 @@ div {
 }
 
 #michael {
-    bottom: 0vw;
+    top: 0vw;
     right: 0vw;
 }
 
@@ -162,4 +162,4 @@ div {
 
 #danielSelector:hover + #daniel {
     display: block;
-}
+} 
