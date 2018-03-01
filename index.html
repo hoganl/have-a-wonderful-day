@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Have a Wonderful Day</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
 </head>
 <body>
@@ -21,16 +22,16 @@
     </header>
 
     <main>
-            <form id="nameForm">
-                <canvas id="intro" width=1000>Welcome to Have a Wonderful Day!</canvas>
-                <p>Hello <input id="nameInput" type="text" autofocus >, it's time to start your day.</p>
-                <button id="wakeUp" type="submit">Wake Up!</button>
-            </form>
+        <form id="nameForm">
+            <h1 id="welcome">Welcome to Have a Wonderful Day!</h1>
+            <p id="hello">Hello <input id="nameInput" type="text" autofocus >, it's time to start your day.</p>
+            <button id="wakeUp" type="submit">Wake Up!</button>
+        </form>
         <section class="story">
             <div id="apt">
                 <audio id="alarmClock" src="audio/alarm-beep-electronic.wav" autoplay></audio>
                 <audio id="aptSound" src="audio/ambience-city-morning.wav" volume=".3"></audio>
-                <canvas id="intro"></canvas>
+                <p id="intro"></p>
                 <button id="startButton" type="button">Start your day!</button>
                 <!-- <img id="tiredSprite" src="img/tired-sprite.jpg" /> -->
             </div>
