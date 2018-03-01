@@ -1,7 +1,3 @@
-* {
-    /* outline: 1px dashed red; */
-}
-
 header {
     background-color: #EAC67A;
 }
@@ -43,7 +39,7 @@ h1 {
     text-align: center;
 }
 
-nav a, button {
+nav a {
     text-decoration: none;
     background: #984B43;
     border:2px solid #233237;
@@ -109,10 +105,6 @@ main {
     width: 600px;
 }
 
-#story {
-
-}
-
 #scenes {
     display: none;
     background-size: 100% 100%;
@@ -129,6 +121,17 @@ main {
     color: white;
 }
 
+button {
+    text-decoration: none;
+    background: #EAC67A;
+    border:2px solid #233237;
+    color: #984B43;
+    text-align:center;
+    white-space:nowrap;
+    padding: 10px;
+}
+
 footer {
     height: 100px;
+    background-color: #EAC67A;
 }

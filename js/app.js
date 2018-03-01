@@ -48,11 +48,8 @@ function Scene (name, filepath, narrative, option1Text, option2Text, outcome1Goo
   this.outcome1Bad = outcome1Bad;
   this.outcome2Good = outcome2Good;
   this.outcome2Bad = outcome2Bad;
-  // this.outcome1Text = random(this['outcome1' + random(goodBadArray)]);
-  // this.outcome2Text = random(this['outcome2' + random(goodBadArray)]);
   Scene.scenesArray.push(this);
 }
-
 
 new Scene(
   'park',
