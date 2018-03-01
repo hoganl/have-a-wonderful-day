@@ -46,7 +46,7 @@ function writeEffect(canvasId, text, delay) {
     // start position for x and iterator
     x = 20, i = 0;
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-  ctx.font = '40px Bradley Hand, cursive';
+  ctx.font = '40px Indie Flower, cursive';
   // thickness of the line
   ctx.lineWidth = 5;
   // to avoid spikes we can join each line with a round joint
