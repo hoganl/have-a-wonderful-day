@@ -50,20 +50,13 @@ nav a {
 }
 
 main {
-    background-image: url("../img/living-room.jpg");
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%), url(../img/living-room.jpg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     height: 700px;
-}
-
-/* main {
     width: 90%;
     margin: 0 auto;
     text-align: center;
-} */
-
-p {
-    background-color: white;
 }
 
 footer {

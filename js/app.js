@@ -13,6 +13,7 @@ var option2Button = document.getElementById('option2');
 var nextSceneButton = document.getElementById('nextScene');
 
 var userName = '';
+
 //final array data will be pushed() into
 var outcomeArray = [];
 Scene.scenesArray = [];
@@ -35,25 +36,20 @@ var groceryArray = ['unicorn meat', 'dragon meat', 'bubblegum meatballs', 'kanga
 var birdsArray = ['cockatoos', 'seagulls', 'penguins', 'owls'];
 
 var color = random(colorArray);
-localStorage.setItem('color', color);
 var animal = random(animalArray);
-localStorage.setItem('animal', animal);
 var sidewalk = random(sidewalkArray);
-localStorage.setItem('sidewalk', sidewalk);
 var vehicle = random(vehicleArray);
-localStorage.setItem('vehicle', vehicle);
 var cold = random(coldArray);
-localStorage.setItem('cold', cold);
 var hot = random(hotArray);
-localStorage.setItem('hot', hot);
 var groceries = random(groceryArray);
-localStorage.setItem('groceries', groceries);
 var bird = random(birdsArray);
-localStorage.setItem('bird', bird);
 
-function Scene (name, filepath, narrative, option1Text, option2Text, outcome1Good, outcome1Bad, outcome2Good, outcome2Bad) {
+
+function Scene (name, filepath, audiofile, narrative, option1Text, option2Text, outcome1Good, outcome1Bad, outcome2Good, outcome2Bad) {
   this.name = name;
   this.filepath = filepath;
+  this.audio = new Audio (audiofile);
+  this.audio.volume = .3;
   this.narrative = narrative;
   this.option1Text = option1Text;
   this.option2Text = option2Text;
@@ -67,6 +63,7 @@ function Scene (name, filepath, narrative, option1Text, option2Text, outcome1Goo
 new Scene(
   'park',
   'img/park.jpg',
+  'audio/ambience-park-jogging.mp3',
   'You are feeling a little hungover from last night\'s adventures, so let\'s go for a jog. You head into the park and you see a ' + color + ' ' + animal + ' . Would you like to pet it, or keep jogging?',
   'Pet the ' + animal,
   'Keep jogging',
@@ -79,7 +76,8 @@ new Scene(
 new Scene(
   'crosswalk',
   'img/cherry-street.jpg',
-  'You finish your jog and decide to head toward a cafe. You are almost there, but you get stuck at a crfosswalk. The traffic doesn\'t seem to be letting up. Do you want to prolong yout suffering and wait, or take a chance and cross anyway?',
+  'audio/ambience-city-street-traffic.wav',
+  'You finish your jog and decide to head toward a cafe. You are almost there, but you get stuck at a crosswalk. The traffic doesn\'t seem to be letting up. Do you want to prolong your suffering and wait, or take a chance and cross anyway?',
   'Wait in agony',
   'Make a run for it',
   'You decided to wait and the light turned green immediately, you managed to cross the street with out getting smashed by a bus, you also let out a celebratory Woohoo!',
@@ -91,7 +89,8 @@ new Scene(
 new Scene(
   'cafe',
   'img/cafe.jpg',
-  'Wow, you finally make it accross the street and into the cafe. Between the long wait to cross the street and the insane line at the cafe, you have finally narrowed it down to two choices ' + cold + ' or ' + hot + '?',
+  'audio/ambience-small-cafe.wav',
+  'Wow, you finally make it accross the street and into the cafe. Between the long wait to cross the street and the insane line at the cafe, you have finally narrowed it down to two choices, ' + cold + ' or ' + hot + '?',
   cold,
   hot,
   'You picked the ' + cold + ' drink and it was the best you’ve ever had.',
@@ -103,7 +102,8 @@ new Scene(
 new Scene(
   'market',
   'img/grocery-store.jpg',
-  'Now that you have had your post jog workout, you need to head to the market to buy a few groceries for breakfast. You buy some bread, ' + groceries + groceries + groceries + '. You are exhausted from the day you have had so far, but it is also nice out. Do you want to walk home or take the bus?',
+  'audio/ambience-supermarket.wav',
+  'Now that you have had your post jog drink, you need to head to the market to buy a few groceries for breakfast. You buy some bread and ' + groceries + '. You are exhausted from the day you have had so far, but it is also nice out. Do you want to walk home or take the bus?',
   'Walk',
   'Bus',
   'You chose to walk and found a $20 bill on the ground.',
@@ -121,9 +121,14 @@ function updateUserName(e) {
   e.preventDefault();
   localStorage.clear();
   userName = nameInput.value;
+  if (!userName) {
+    return alert('You have to tell us your name friend!');
+  }
   localStorage.setItem('userName', userName);
   e.target.reset();
   nameForm.style.display = 'none';
+  document.getElementById('alarmClock').pause();
+  document.getElementById('aptSound').play();
 }
 
 if (localStorage.getItem('userName')) {
@@ -135,12 +140,25 @@ function renderSceneP1() {
     window.location = 'summary.html';
     localStorage.setItem('outcomeArray', JSON.stringify(outcomeArray));
     localStorage.setItem('happinessValue', JSON.stringify(happinessValue));
+    localStorage.setItem('color', color);
+    localStorage.setItem('animal', animal);
+    localStorage.setItem('cold', cold);
+    localStorage.setItem('hot', hot);
+    localStorage.setItem('groceries', groceries);
   }
   apt.style.display = 'none';
   scenes.style.display = 'block';
   optionButtons.style.display = 'block';
   nextSceneButton.style.display = 'none';
-  scenes.style.backgroundImage = 'url(\'' + Scene.scenesArray[currentScene].filepath + '\')';
+
+  scenes.style.backgroundImage = "linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%), url('" + Scene.scenesArray[currentScene].filepath + "')";
+  if (currentScene > 0) {
+    Scene.scenesArray[currentScene-1].audio.pause();
+  } else {
+    document.getElementById('aptSound').pause();
+  }
+  Scene.scenesArray[currentScene].audio.play();
+  pNarrative.textContent = Scene.scenesArray[currentScene].narrative;
   doTheThing(Scene.scenesArray[currentScene].narrative, 300);
   option1Button.textContent = Scene.scenesArray[currentScene].option1Text;
   option2Button.textContent = Scene.scenesArray[currentScene].option2Text;
