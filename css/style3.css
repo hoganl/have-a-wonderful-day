@@ -1,3 +1,7 @@
+* {
+    outline: 1px dashed red;
+}
+
 header {
     background-color: #EAC67A;
 }
@@ -50,6 +54,7 @@ nav a {
 }
 
 main {
+    height: 700px;
     width: 90%;
     margin: 0 auto;
     text-align: center;
@@ -58,4 +63,21 @@ main {
 footer {
     height: 100px;
     background-color: #EAC67A;
+}
+
+div {
+    background-image: url("../img/lunch-with-friends.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 80%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#leftAside {
+    float: left;
+}
+
+#rightAside {
+    float: right;
 }
