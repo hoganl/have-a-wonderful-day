@@ -11,6 +11,7 @@ var optionButtons = document.getElementById('optionButtons');
 var option1Button = document.getElementById('option1');
 var option2Button = document.getElementById('option2');
 var nextSceneButton = document.getElementById('nextScene');
+
 var userName = '';
 
 //final array data will be pushed() into
@@ -149,6 +150,7 @@ function renderSceneP1() {
   scenes.style.display = 'block';
   optionButtons.style.display = 'block';
   nextSceneButton.style.display = 'none';
+
   scenes.style.backgroundImage = "linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%), url('" + Scene.scenesArray[currentScene].filepath + "')";
   if (currentScene > 0) {
     Scene.scenesArray[currentScene-1].audio.pause();
@@ -157,32 +159,35 @@ function renderSceneP1() {
   }
   Scene.scenesArray[currentScene].audio.play();
   pNarrative.textContent = Scene.scenesArray[currentScene].narrative;
+  doTheThing(Scene.scenesArray[currentScene].narrative, 300);
   option1Button.textContent = Scene.scenesArray[currentScene].option1Text;
   option2Button.textContent = Scene.scenesArray[currentScene].option2Text;
 }
-
+ 
 function renderSceneP2(e) {
   optionButtons.style.display = 'none';
   nextSceneButton.style.display = 'block';
   var goodBad = random(goodBadArray);
+  var storyTeller;
   if ((e.target === option1Button) && (goodBad === 'good')) {
-    pNarrative.textContent = Scene.scenesArray[currentScene].outcome1Good;
+    storyTeller = Scene.scenesArray[currentScene].outcome1Good;
     happinessValue++;
-    outcomeArray.push(pNarrative.textContent);
+    outcomeArray.push(storyTeller);
     console.log(outcomeArray);
   } else if ((e.target === option1Button) && (goodBad === 'bad')) {
-    pNarrative.textContent = Scene.scenesArray[currentScene].outcome1Bad;
+    storyTeller = Scene.scenesArray[currentScene].outcome1Bad;
     happinessValue--;
-    outcomeArray.push(pNarrative.textContent);
+    outcomeArray.push(storyTeller);
   } else if ((e.target === option2Button) && (goodBad === 'good')) {
-    pNarrative.textContent = Scene.scenesArray[currentScene].outcome2Good;
+    storyTeller = Scene.scenesArray[currentScene].outcome2Good;
     happinessValue++;
-    outcomeArray.push(pNarrative.textContent);
+    outcomeArray.push(storyTeller);
   } else {
-    pNarrative.textContent = Scene.scenesArray[currentScene].outcome2Bad;
+    storyTeller = Scene.scenesArray[currentScene].outcome2Bad;
     happinessValue--;
-    outcomeArray.push(pNarrative.textContent);
+    outcomeArray.push(storyTeller);
   }
+  doTheThing(storyTeller, 300);
   currentScene++;
 }
 
@@ -193,58 +198,3 @@ function random(arrayName) {
   return outcome;
 }
 
-// function writeEffect(canvasId, text) {
-
-//   var canvas = document.getElementById(canvasId);
-//   // get 2D context
-//   var ctx = canvas.getContext('2d'),
-//     // dash-length for off-range
-//     dashLen = 350,
-//     // we'll update this, initialize
-//     dashOffset = dashLen,
-//     // some arbitrary speed
-//     speed = 60,
-//     // the text we will draw
-//     txt = canvas.innerHTML = text,
-//     // start position for x and iterator
-//     x = 0, i = 0;
-//   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-//   ctx.font = '50px Comic Sans MS, cursive, TSCu_Comic, sans-serif';
-//   // thickness of the line
-//   ctx.lineWidth = 5;
-//   // to avoid spikes we can join each line with a round joint
-//   ctx.lineJoin = 'round';
-//   ctx.strokeStyle = ctx.fillStyle = 'black';
-//   (function loop() {
-//     // clear canvas for each frame
-//     ctx.clearRect(x, 0, 60, 150);
-//     // calculate and set current line-dash for this char
-//     ctx.setLineDash([dashLen - dashOffset, dashOffset - speed]);
-//     // reduce length of off-dash
-//     dashOffset -= speed;
-//     // draw char to canvas with current dash-length
-//     ctx.strokeText(txt[i], x, 90);
-//     // char done? no, the loop
-//     if (dashOffset > 0) requestAnimationFrame(loop);
-//     else {
-//       // ok, outline done, lets fill its interior before next
-//       //ctx.fillText(txt[i], x, 90);
-//       // reset line-dash length
-//       dashOffset = dashLen;
-//       // get x position to next char by measuring what we have drawn
-//       x += ctx.measureText(txt[i++]).width + ctx.lineWidth;
-//       // if we still have chars left, loop animation again for this char
-//       if (i < txt.length) requestAnimationFrame(loop);
-//     }
-//   })(); // just to self-invoke the loop
-// }
-
-// writeEffect('canvas1', 'The random animal is friendly!');
-
-// setTimeout (function() {
-//   writeEffect('canvas2', 'You have a great time playing with the random');
-// }, 3500);
-
-// setTimeout(function() {
-//   writeEffect('canvas3', 'animal and then continue with your lovely day!');
-// },8200);
