@@ -95,8 +95,10 @@ main {
     text-align: center;
 }
 
-#nameForm:hide {
-    display: none;
+/* home page */
+
+#welcome {
+    color: white;
 }
 
 #nameForm {
@@ -108,23 +110,19 @@ main {
     background-color: black;
     color: white;
     font-size: 40px;
-    height: 100%;
-    width: 100%;
 }
 
-#nameForm canvas {
-    margin-top: 10%;
-}
-#nameForm p {
+#hello {
     margin-top: 10%;
 }
 
-#nameForm p input {
+#hello input {
     height: 30px;
 }
 
 #wakeUp {
     background-color: yellow;
+    color: black;
     height: 50px;
     width: 200px;
 }
@@ -141,8 +139,12 @@ main {
 }
 
 #intro {
-    margin-top: 10%;
-    width: 600px;
+    width: 800px;
+    /* text-align: center; */
+    font-size: 40px;
+    margin: 0 auto;
+    padding: 20px;
+    /* font-family: Bradley Hand cursive; */
 }
 
 #scenes {
@@ -154,7 +156,8 @@ main {
 
 #nextScene {
     display: none;
-    float: right;
+    /* clear: both; */
+    /* float: right; */
 }
 
 footer {
@@ -166,6 +169,3 @@ canvas {
   width: 90%;
 }
 
-#canvas-text {
-  background-color: rgba(255, 255, 255, 0.6);
-}

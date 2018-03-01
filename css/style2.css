@@ -56,7 +56,16 @@ main {
     height: 700px;
     width: 90%;
     margin: 0 auto;
+}
+
+h2 {
+    font-size: 35px;
     text-align: center;
+    padding: 20px;
+}
+
+p {
+    font-size: 25px;
 }
 
 footer {
