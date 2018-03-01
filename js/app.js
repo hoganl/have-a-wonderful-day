@@ -11,7 +11,9 @@ var optionButtons = document.getElementById('optionButtons');
 var option1Button = document.getElementById('option1');
 var option2Button = document.getElementById('option2');
 var nextSceneButton = document.getElementById('nextScene');
+
 var userName = '';
+
 //final array data will be pushed() into
 var outcomeArray = [];
 Scene.scenesArray = [];
@@ -34,25 +36,20 @@ var groceryArray = ['unicorn meat', 'dragon meat', 'bubblegum meatballs', 'kanga
 var birdsArray = ['cockatoos', 'seagulls', 'penguins', 'owls'];
 
 var color = random(colorArray);
-localStorage.setItem('color', color);
 var animal = random(animalArray);
-localStorage.setItem('animal', animal);
 var sidewalk = random(sidewalkArray);
-localStorage.setItem('sidewalk', sidewalk);
 var vehicle = random(vehicleArray);
-localStorage.setItem('vehicle', vehicle);
 var cold = random(coldArray);
-localStorage.setItem('cold', cold);
 var hot = random(hotArray);
-localStorage.setItem('hot', hot);
 var groceries = random(groceryArray);
-localStorage.setItem('groceries', groceries);
 var bird = random(birdsArray);
-localStorage.setItem('bird', bird);
 
-function Scene (name, filepath, narrative, option1Text, option2Text, outcome1Good, outcome1Bad, outcome2Good, outcome2Bad) {
+
+function Scene (name, filepath, audiofile, narrative, option1Text, option2Text, outcome1Good, outcome1Bad, outcome2Good, outcome2Bad) {
   this.name = name;
   this.filepath = filepath;
+  this.audio = new Audio (audiofile);
+  this.audio.volume = .3;
   this.narrative = narrative;
   this.option1Text = option1Text;
   this.option2Text = option2Text;
@@ -66,6 +63,7 @@ function Scene (name, filepath, narrative, option1Text, option2Text, outcome1Goo
 new Scene(
   'park',
   'img/park.jpg',
+  'audio/ambience-park-jogging.mp3',
   'You are feeling a little hungover from last night\'s adventures, so let\'s go for a jog. You head into the park and you see a ' + color + ' ' + animal + ' . Would you like to pet it, or keep jogging?',
   'Pet the ' + animal,
   'Keep jogging',
@@ -78,7 +76,8 @@ new Scene(
 new Scene(
   'crosswalk',
   'img/cherry-street.jpg',
-  'You finish your jog and decide to head toward a cafe. You are almost there, but you get stuck at a crfosswalk. The traffic doesn\'t seem to be letting up. Do you want to prolong yout suffering and wait, or take a chance and cross anyway?',
+  'audio/ambience-city-street-traffic.wav',
+  'You finish your jog and decide to head toward a cafe. You are almost there, but you get stuck at a crosswalk. The traffic doesn\'t seem to be letting up. Do you want to prolong your suffering and wait, or take a chance and cross anyway?',
   'Wait in agony',
   'Make a run for it',
   'You decided to wait and the light turned green immediately, you managed to cross the street with out getting smashed by a bus, you also let out a celebratory Woohoo!',
@@ -90,7 +89,8 @@ new Scene(
 new Scene(
   'cafe',
   'img/cafe.jpg',
-  'Wow, you finally make it accross the street and into the cafe. Between the long wait to cross the street and the insane line at the cafe, you have finally narrowed it down to two choices ' + cold + ' or ' + hot + '?',
+  'audio/ambience-small-cafe.wav',
+  'Wow, you finally make it accross the street and into the cafe. Between the long wait to cross the street and the insane line at the cafe, you have finally narrowed it down to two choices, ' + cold + ' or ' + hot + '?',
   cold,
   hot,
   'You picked the ' + cold + ' drink and it was the best you’ve ever had.',
@@ -102,7 +102,8 @@ new Scene(
 new Scene(
   'market',
   'img/grocery-store.jpg',
-  'Now that you have had your post jog workout, you need to head to the market to buy a few groceries for breakfast. You buy some bread, ' + groceries + groceries + groceries + '. You are exhausted from the day you have had so far, but it is also nice out. Do you want to walk home or take the bus?',
+  'audio/ambience-supermarket.wav',
+  'Now that you have had your post jog drink, you need to head to the market to buy a few groceries for breakfast. You buy some bread and ' + groceries + '. You are exhausted from the day you have had so far, but it is also nice out. Do you want to walk home or take the bus?',
   'Walk',
   'Bus',
   'You chose to walk and found a $20 bill on the ground.',
@@ -120,9 +121,14 @@ function updateUserName(e) {
   e.preventDefault();
   localStorage.clear();
   userName = nameInput.value;
+  if (!userName) {
+    return alert('You have to tell us your name friend!');
+  }
   localStorage.setItem('userName', userName);
   e.target.reset();
   nameForm.style.display = 'none';
+  document.getElementById('alarmClock').pause();
+  document.getElementById('aptSound').play();
 }
 
 if (localStorage.getItem('userName')) {
@@ -134,39 +140,54 @@ function renderSceneP1() {
     window.location = 'summary.html';
     localStorage.setItem('outcomeArray', JSON.stringify(outcomeArray));
     localStorage.setItem('happinessValue', JSON.stringify(happinessValue));
+    localStorage.setItem('color', color);
+    localStorage.setItem('animal', animal);
+    localStorage.setItem('cold', cold);
+    localStorage.setItem('hot', hot);
+    localStorage.setItem('groceries', groceries);
   }
   apt.style.display = 'none';
   scenes.style.display = 'block';
   optionButtons.style.display = 'block';
   nextSceneButton.style.display = 'none';
-  scenes.style.backgroundImage = "url('" + Scene.scenesArray[currentScene].filepath + "')";
+
+  scenes.style.backgroundImage = "linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%), url('" + Scene.scenesArray[currentScene].filepath + "')";
+  if (currentScene > 0) {
+    Scene.scenesArray[currentScene-1].audio.pause();
+  } else {
+    document.getElementById('aptSound').pause();
+  }
+  Scene.scenesArray[currentScene].audio.play();
   pNarrative.textContent = Scene.scenesArray[currentScene].narrative;
+  doTheThing(Scene.scenesArray[currentScene].narrative, 300);
   option1Button.textContent = Scene.scenesArray[currentScene].option1Text;
   option2Button.textContent = Scene.scenesArray[currentScene].option2Text;
 }
-
+ 
 function renderSceneP2(e) {
   optionButtons.style.display = 'none';
   nextSceneButton.style.display = 'block';
   var goodBad = random(goodBadArray);
+  var storyTeller;
   if ((e.target === option1Button) && (goodBad === 'good')) {
-    pNarrative.textContent = Scene.scenesArray[currentScene].outcome1Good;
+    storyTeller = Scene.scenesArray[currentScene].outcome1Good;
     happinessValue++;
-    outcomeArray.push(pNarrative.textContent);
+    outcomeArray.push(storyTeller);
     console.log(outcomeArray);
   } else if ((e.target === option1Button) && (goodBad === 'bad')) {
-    pNarrative.textContent = Scene.scenesArray[currentScene].outcome1Bad;
+    storyTeller = Scene.scenesArray[currentScene].outcome1Bad;
     happinessValue--;
-    outcomeArray.push(pNarrative.textContent);
+    outcomeArray.push(storyTeller);
   } else if ((e.target === option2Button) && (goodBad === 'good')) {
-    pNarrative.textContent = Scene.scenesArray[currentScene].outcome2Good;
+    storyTeller = Scene.scenesArray[currentScene].outcome2Good;
     happinessValue++;
-    outcomeArray.push(pNarrative.textContent);
+    outcomeArray.push(storyTeller);
   } else {
-    pNarrative.textContent = Scene.scenesArray[currentScene].outcome2Bad;
+    storyTeller = Scene.scenesArray[currentScene].outcome2Bad;
     happinessValue--;
-    outcomeArray.push(pNarrative.textContent);
+    outcomeArray.push(storyTeller);
   }
+  doTheThing(storyTeller, 300);
   currentScene++;
 }
 
@@ -177,58 +198,3 @@ function random(arrayName) {
   return outcome;
 }
 
-// function writeEffect(canvasId, text) {
-
-//   var canvas = document.getElementById(canvasId);
-//   // get 2D context
-//   var ctx = canvas.getContext('2d'),
-//     // dash-length for off-range
-//     dashLen = 350,
-//     // we'll update this, initialize
-//     dashOffset = dashLen,
-//     // some arbitrary speed
-//     speed = 60,
-//     // the text we will draw
-//     txt = canvas.innerHTML = text,
-//     // start position for x and iterator
-//     x = 0, i = 0;
-//   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-//   ctx.font = '50px Comic Sans MS, cursive, TSCu_Comic, sans-serif';
-//   // thickness of the line
-//   ctx.lineWidth = 5;
-//   // to avoid spikes we can join each line with a round joint
-//   ctx.lineJoin = 'round';
-//   ctx.strokeStyle = ctx.fillStyle = 'black';
-//   (function loop() {
-//     // clear canvas for each frame
-//     ctx.clearRect(x, 0, 60, 150);
-//     // calculate and set current line-dash for this char
-//     ctx.setLineDash([dashLen - dashOffset, dashOffset - speed]);
-//     // reduce length of off-dash
-//     dashOffset -= speed;
-//     // draw char to canvas with current dash-length
-//     ctx.strokeText(txt[i], x, 90);
-//     // char done? no, the loop
-//     if (dashOffset > 0) requestAnimationFrame(loop);
-//     else {
-//       // ok, outline done, lets fill its interior before next
-//       //ctx.fillText(txt[i], x, 90);
-//       // reset line-dash length
-//       dashOffset = dashLen;
-//       // get x position to next char by measuring what we have drawn
-//       x += ctx.measureText(txt[i++]).width + ctx.lineWidth;
-//       // if we still have chars left, loop animation again for this char
-//       if (i < txt.length) requestAnimationFrame(loop);
-//     }
-//   })(); // just to self-invoke the loop
-// }
-
-// writeEffect('canvas1', 'The random animal is friendly!');
-
-// setTimeout (function() {
-//   writeEffect('canvas2', 'You have a great time playing with the random');
-// }, 3500);
-
-// setTimeout(function() {
-//   writeEffect('canvas3', 'animal and then continue with your lovely day!');
-// },8200);
