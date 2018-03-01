@@ -6,7 +6,6 @@ var intro = document.getElementById('intro');
 var apt = document.getElementById('apt');
 var startButton = document.getElementById('startButton');
 var scenes = document.getElementById('scenes');
-var pNarrative = document.getElementById('narrative');
 var optionButtons = document.getElementById('optionButtons');
 var option1Button = document.getElementById('option1');
 var option2Button = document.getElementById('option2');
@@ -45,7 +44,6 @@ var cold = random(coldArray);
 var hot = random(hotArray);
 var groceries = random(groceryArray);
 var bird = random(birdsArray);
-
 
 function Scene (name, filepath, audiofile, narrative, option1Text, option2Text, outcome1Good, outcome1Bad, outcome2Good, outcome2Bad) {
   this.name = name;
@@ -92,7 +90,7 @@ new Scene(
   'cafe',
   'img/cafe.jpg',
   'audio/ambience-small-cafe.wav',
-  'Wow, you finally make it accross the street and into the cafe. Between the long wait to cross the street and the insane line at the cafe, you have finally narrowed it down to two choices, ' + cold + ' or ' + hot + '?',
+  'Wow, you finally make it across the street and into the cafe. Between the long wait to cross the street and the insane line at the cafe, you have finally narrowed it down to two choices, ' + cold + ' or ' + hot + '?',
   cold,
   hot,
   'You picked the ' + cold + ' drink and it was the best you’ve ever had.',
@@ -141,6 +139,7 @@ function updateUserName(e) {
   localStorage.setItem('userName', userName);
   e.target.reset();
   nameForm.style.display = 'none';
+  apt.style.display = 'block';
   if (isMuted === false){
     document.getElementById('alarmClock').pause();
     document.getElementById('aptSound').play();
@@ -150,6 +149,8 @@ function updateUserName(e) {
 if (localStorage.getItem('userName')) {
   userName = localStorage.getItem('userName');
 }
+
+intro.textContent = 'Good morning ' + userName + '! It is your day off and you have some errands to run. Let\'s get your day started!';
 
 function renderSceneP1() {
   if (currentScene >= Scene.scenesArray.length) {
@@ -166,7 +167,6 @@ function renderSceneP1() {
   scenes.style.display = 'block';
   optionButtons.style.display = 'block';
   nextSceneButton.style.display = 'none';
-
   scenes.style.backgroundImage = "linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%), url('" + Scene.scenesArray[currentScene].filepath + "')";
   if (isMuted === false) {
     if (currentScene > 0) {
