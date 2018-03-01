@@ -37,6 +37,7 @@ h1 {
     font-size: 50px;
     color: #18121E;
     text-align: center;
+    font-family: 'Indie Flower', cursive;
 }
 
 nav a, button {
@@ -47,6 +48,8 @@ nav a, button {
     text-align:center;
     white-space:nowrap;
     padding: 10px;
+    font-family: 'Indie Flower', cursive;
+    font-weight: bold;
 }
 
 @keyframes fadeIn {
@@ -99,6 +102,7 @@ main {
 
 #welcome {
     color: white;
+    font-family: 'Indie Flower', cursive;
 }
 
 #nameForm {
@@ -110,6 +114,7 @@ main {
     background-color: black;
     color: white;
     font-size: 40px;
+    font-family: 'Indie Flower', cursive;
 }
 
 #hello {
@@ -140,11 +145,11 @@ main {
 
 #intro {
     width: 800px;
-    /* text-align: center; */
     font-size: 40px;
     margin: 0 auto;
-    padding: 20px;
-    /* font-family: Bradley Hand cursive; */
+    padding-top: 200px;
+    padding-bottom: 50px;
+    font-family: 'Indie Flower', cursive;
 }
 
 #scenes {
