@@ -11,6 +11,8 @@ var optionButtons = document.getElementById('optionButtons');
 var option1Button = document.getElementById('option1');
 var option2Button = document.getElementById('option2');
 var nextSceneButton = document.getElementById('nextScene');
+var muteButton = document.getElementById('muteButton');
+var isMuted = false;
 
 var userName = '';
 
@@ -113,9 +115,21 @@ new Scene(
 );
 
 nameForm.addEventListener('submit', updateUserName);
+muteButton.addEventListener('click', toggleMute);
 startButton.addEventListener('click', renderSceneP1);
 optionButtons.addEventListener('click', renderSceneP2);
 nextSceneButton.addEventListener('click', renderSceneP1);
+
+function toggleMute(event) {
+  if (isMuted === false){
+    muteButton.src = 'img/muted.png';
+    muteButton.volume = '0';
+    return isMuted = true;
+  } else if (isMuted === true) {
+    muteButton.src = 'img/unmuted.png';
+    return isMuted = false;
+  }
+}
 
 function updateUserName(e) {
   e.preventDefault();
@@ -127,8 +141,10 @@ function updateUserName(e) {
   localStorage.setItem('userName', userName);
   e.target.reset();
   nameForm.style.display = 'none';
-  document.getElementById('alarmClock').pause();
-  document.getElementById('aptSound').play();
+  if (isMuted === false){
+    document.getElementById('alarmClock').pause();
+    document.getElementById('aptSound').play();
+  }
 }
 
 if (localStorage.getItem('userName')) {
@@ -152,18 +168,20 @@ function renderSceneP1() {
   nextSceneButton.style.display = 'none';
 
   scenes.style.backgroundImage = "linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%), url('" + Scene.scenesArray[currentScene].filepath + "')";
-  if (currentScene > 0) {
-    Scene.scenesArray[currentScene-1].audio.pause();
-  } else {
-    document.getElementById('aptSound').pause();
+  if (isMuted === false) {
+    if (currentScene > 0) {
+      Scene.scenesArray[currentScene-1].audio.pause();
+    } else {
+      document.getElementById('aptSound').pause();
+    }
+    Scene.scenesArray[currentScene].audio.play();
   }
-  Scene.scenesArray[currentScene].audio.play();
-  pNarrative.textContent = Scene.scenesArray[currentScene].narrative;
+  //pNarrative.textContent = Scene.scenesArray[currentScene].narrative;
   doTheThing(Scene.scenesArray[currentScene].narrative, 300);
   option1Button.textContent = Scene.scenesArray[currentScene].option1Text;
   option2Button.textContent = Scene.scenesArray[currentScene].option2Text;
 }
- 
+
 function renderSceneP2(e) {
   optionButtons.style.display = 'none';
   nextSceneButton.style.display = 'block';
@@ -197,4 +215,3 @@ function random(arrayName) {
   var outcome = arrayName[i];
   return outcome;
 }
-
