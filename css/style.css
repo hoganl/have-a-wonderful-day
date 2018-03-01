@@ -49,6 +49,46 @@ nav a, button {
     padding: 10px;
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  90% {
+    opacity:.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn ease 7s;
+  -webkit-animation: fadeIn ease 7s;
+  -moz-animation: fadeIn ease 7s;
+  -o-animation: fadeIn ease 7s;
+  -ms-animation: fadeIn ease 7s;
+}
+
+@keyframes fadeIn-s {
+  0% {
+    opacity:0;
+  }
+  90% {
+    opacity:.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in-short {
+  animation: fadeIn-s ease 3s;
+  -webkit-animation: fadeIn-s ease 3s;
+  -moz-animation: fadeIn-s ease 3s;
+  -o-animation: fadeIn-s ease 3s;
+  -ms-animation: fadeIn-s ease 3s;
+}
+
 main {
     width: 90%;
     margin: 0 auto;

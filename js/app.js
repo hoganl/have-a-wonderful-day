@@ -158,6 +158,9 @@ function renderSceneP1() {
     document.getElementById('aptSound').pause();
   }
   Scene.scenesArray[currentScene].audio.play();
+
+  // pNarrative.textContent = Scene.scenesArray[currentScene].narrative;
+
   doTheThing(Scene.scenesArray[currentScene].narrative, 300);
   option1Button.textContent = Scene.scenesArray[currentScene].option1Text;
   option2Button.textContent = Scene.scenesArray[currentScene].option2Text;
