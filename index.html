@@ -28,7 +28,7 @@
         </div>
         <form id="nameForm">
             <h1 id="welcome">Welcome to Have a Wonderful Day!</h1>
-            <p id="hello">Hello <input id="nameInput" type="text" autofocus >, it's time to start your day.</p>
+            <p id="hello">Hello <input id="nameInput" type="text" autofocus placeholder="name">, it's time to start your day.</p>
             <button id="wakeUp" type="submit">Wake Up!</button>
         </form>
         <section class="story">
@@ -37,7 +37,6 @@
                 <audio id="aptSound" src="audio/ambience-city-morning.wav" volume=".3"></audio>
                 <p id="intro"></p>
                 <button id="startButton" type="button">Start your day!</button>
-                <!-- <img id="tiredSprite" src="img/tired-sprite.jpg" /> -->
             </div>
             <div id="scenes">
               <div id ="canvas-text"></div>
@@ -45,12 +44,9 @@
                     <button id="option1" type="button" name="option1"></button>
                     <button id="option2" type="button" name="option2"></button>
                 </div>
-                <button id="nextScene" class ="fade-in-short" type="button" name="nextScene" >Next Scene</button>
+                <button id="nextScene" class ="fade-in-short" type="button" name="nextScene" >Continue</button>
                 <div id="spriteImgs">
                     <p></p>
-                    <!-- <img id="happySprite" src="img/happy-sprite.jpg" />
-                    <img id="neutralSprite" src="img/neutral-sprite.jpg" />
-                    <img id="sadSprite" src="img/sad-sprite.jpg" /> -->
                 </div>
             </div>
         </section>

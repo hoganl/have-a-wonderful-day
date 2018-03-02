@@ -25,12 +25,12 @@ var goodBadArray = ['good', 'bad'];
 
 //scene 1 arrays
 var colorArray = ['orange', 'blue', 'pink', 'purple'];
-var animalArray = ['dog', 'honey badger', 'elephant', 'bear'];
+var animalArray = ['dog', 'honey badger', 'trash panda', 'bear'];
 //scene 2 arrays
 var sidewalkArray = ['bicyclist', 'skateboarder', 'scooter', 'runner'];
 var vehicleArray = ['moped', 'trolly', 'bus', 'volkswagen beetle'];
 //scene 3 arrays
-var hotArray = ['black coffee', 'americana', 'vanilla late', 'black tea'];
+var hotArray = ['black coffee', 'americana', 'vanilla latte', 'black tea'];
 var coldArray = ['fruit smoothie', 'iced coffee', 'protein shake', 'iced tea'];
 //scene 4 arrays
 var groceryArray = ['unicorn meat', 'dragon meat', 'bubblegum meatballs', 'kangaroo jerky', 'jellyfish noodles', 'spam snacks', 'smoked rattlesnake'];
@@ -64,52 +64,52 @@ new Scene(
   'park',
   'img/park.jpg',
   'audio/ambience-park-jogging.mp3',
-  'You are feeling a little hungover from last night\'s adventures, so let\'s go for a jog. You head into the park and you see a ' + color + ' ' + animal + ' . Would you like to pet it, or keep jogging?',
+  'After a wild Friday night you decide to go for a morning jog in the park. While out jogging you hear a rustling in the bushes and encounter a ' + color + ' ' + animal + ' ! Are you brave enough to pet it, or do you run away in the opposite direction?',
   'Pet the ' + animal,
-  'Keep jogging',
-  'You decided to pet the ' + animal + ' and it was friendly! You had a great time playing with the ' + animal + ' and then finished your run.',
-  'You decided to pet the ' + animal + ' and it bit your hand, you then ran away.',
+  'Run away',
+  'You decided to be brave and pet the ' + animal + ' and it was super friendly! You finished your run after making your new friend.',
+  'You decided to be brave and pet the ' + animal + ' but unfortunately it was rabid and bit your hand before you had the chance to run away.',
   'You ran away and the feral-looking ' + animal + ' luckily didn\'t pursue you.',
-  'You ran away and tripped on a twig hitting the ground face first.'
+  'You ran away and tripped over a root hitting the pavement face first and chipped your front tooth.'
 );
 
 new Scene(
   'crosswalk',
   'img/cherry-street.jpg',
   'audio/ambience-city-street-traffic.wav',
-  'You finish your jog and decide to head toward a cafe. You are almost there, but you get stuck at a crosswalk. The traffic doesn\'t seem to be letting up. Do you want to prolong your suffering and wait, or take a chance and cross anyway?',
-  'Wait in agony',
-  'Make a run for it',
-  'You decided to wait and the light turned green immediately, you managed to cross the street with out getting smashed by a bus, you also let out a celebratory Woohoo!',
-  'You decided to wait and a ' + sidewalk + ' nearly ran you over. The ' + sidewalk + ' yelled at you.',
-  'You made a run for it and a kind Subaru Outback driver stopped traffic so you could cross safely.',
-  'You made a run for it and you stepped into the street and nearly lost your foot to a ' + vehicle + '.'
+  'After finishing your jog you head over to your favorite  café. You are almost there, but you get stuck at a crosswalk as the light turns red. The traffic doesn\'t seem to be letting up. Do you wait patiently like a good Seattlite or risk it all and dart across recklessly.',
+  'Wait patiently',
+  'Run and risk it all',
+  'You decided to wait patiently and luckily the light turned green immediately and crossed without incident.',
+  'You decided to wait patiently and a ' + sidewalk + ' nearly ran you over. They yelled profanity at you as they breezed on by.',
+  'You made a run for it and a kind Subaru Outback driver stopped traffic just so you could cross safely.',
+  'You made a run for it and as you stepped into the street a ' + vehicle + ' runs over your foot.'
 );
 
 new Scene(
   'cafe',
   'img/cafe.jpg',
   'audio/ambience-small-cafe.wav',
-  'Wow, you finally make it across the street and into the cafe. Between the long wait to cross the street and the insane line at the cafe, you have finally narrowed it down to two choices, ' + cold + ' or ' + hot + '?',
+  'You crossed the busy street and made it to your favorite café to grab a drink, however, you find yourself at the end of an incredibly long line. After mulling things over, you have narrowed your choices down to just two, ' + cold + ' or ' + hot + '?',
   cold,
   hot,
-  'You picked the ' + cold + ' drink and it was the best you’ve ever had.',
-  'You picked the ' + cold + ' drink and you immediately spilled it onto the floor by accident.',
-  'You picked the ' + hot + ' drink and was wowed by it, you tipped the barista a $20.',
-  'You picked the ' + hot + ' drink and spilled it on your lap which gave you a 3rd degree burn on your thighs.'
+  'You picked the ' + cold + ' and you happened to be the 100th customer of the day and got your drink order for free.',
+  'You picked the ' + cold + ' and it gave you the worst brain freeze of your life.',
+  'You picked the ' + hot + ' and found the phone number of the cute barista scrawled on the side of it.',
+  'You picked the ' + hot + ' and as you sat down, spilled it on your lap giving yourself a 3rd degree thigh burn.'
 );
 
 new Scene(
   'market',
   'img/grocery-store.jpg',
   'audio/ambience-supermarket.wav',
-  'Now that you have had your post jog drink, you need to head to the market to buy a few groceries for breakfast. You buy some bread and ' + groceries + '. You are exhausted from the day you have had so far, but it is also nice out. Do you want to walk home or take the bus?',
+  'Now that you have had your post-jog drink, you head down to the market to pick up some bread and ' + groceries + '. You are already exhausted from the day that you\'ve had so far, but at least it\'s nice out. Do you walk home or take the bus?',
   'Walk',
   'Bus',
-  'You chose to walk and found a $20 bill on the ground.',
-  'You chose to walk and an errant flock of ' + bird + ' attacked you and stole your loaf of bread.',
-  'You took the bus and somebody gave up their spot for you.',
-  'You took the bus and it was beyond packed so you had to ride standing up while you balanced your groceries on your head!'
+  'You chose to walk home and discovered a $20 bill on the ground. Cha-ching!',
+  'You chose to walk home and your loaf of bread attracted an angry flock of ' + bird + '. They swooped down and stole all of your bread that you were going to make french toast with.',
+  'You took the bus home and somebody was nice enough to give up their spot for you and your groceries.',
+  'You took the bus home and your grocery bag ripped spilling out everywhere on the bus, everbody looked annoyed with you as you gathered everything up.'
 );
 
 nameForm.addEventListener('submit', updateUserName);
@@ -145,6 +145,7 @@ function updateUserName(e) {
   localStorage.clear();
   console.log('ls clear');
   userName = nameInput.value;
+  intro.textContent = 'Good morning ' + userName + '! It is your day off and you have some errands to run. Let\'s get your day started!';
   if (!userName) {
     return alert('You have to tell us your name friend!');
   }
@@ -163,7 +164,6 @@ if (localStorage.getItem('userName')) {
   userName = localStorage.getItem('userName');
 }
 
-intro.textContent = 'Good morning ' + userName + '! It is your day off and you have some errands to run. Let\'s get your day started!';
 
 function renderSceneP1() {
   if (currentScene >= Scene.scenesArray.length) {
@@ -187,7 +187,7 @@ function renderSceneP1() {
     document.getElementById('aptSound').pause();
   }
   Scene.scenesArray[currentScene].audio.play();
-  doTheThing(Scene.scenesArray[currentScene].narrative, 300);
+  paintCanvas(Scene.scenesArray[currentScene].narrative, 300);
   option1Button.textContent = Scene.scenesArray[currentScene].option1Text;
   option2Button.textContent = Scene.scenesArray[currentScene].option2Text;
 }
@@ -215,7 +215,7 @@ function renderSceneP2(e) {
     happinessValue--;
     outcomeArray.push(storyTeller);
   }
-  doTheThing(storyTeller, 300);
+  paintCanvas(storyTeller, 300);
   currentScene++;
 }
 

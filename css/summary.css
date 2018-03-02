@@ -1,5 +1,6 @@
 header {
     background-color: #EAC67A;
+    border-bottom: 10px ridge #984B43;
 }
 
 body {
@@ -86,8 +87,27 @@ p {
 footer {
     height: 100px;
     background-color: #EAC67A;
+    border-top: 10px ridge #984B43;
 }
 
 #summary1, #summary2, #summary3, #summary4, #summary5, #summary6 {
     margin-bottom: 20px;
 }
+
+button {
+    background: #984B43;
+}
+
+#mute {
+    float: right;
+    height: 65px;
+    width: 60px;
+  }
+  
+  #muteButton {
+    z-index: 2;
+    width: 80%;
+    height: 80%;
+    text-decoration: none;
+    background: #984B43;
+  }

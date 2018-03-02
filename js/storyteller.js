@@ -76,7 +76,7 @@ function writeEffect(canvasId, text, delay) {
   })(); // just to self-invoke the loop
 }
 
-function doTheThing (textInput, delay){
+function paintCanvas (textInput, delay){
   var narrative = textInput;
 
   var lines = lineSplit(narrative, 55);
