@@ -121,10 +121,21 @@ nextSceneButton.addEventListener('click', renderSceneP1);
 function toggleMute(event) {
   if (isMuted === false){
     muteButton.src = 'img/muted.png';
-    muteButton.volume = '0';
+    document.getElementById('alarmClock').volume = '0';
+    document.getElementById('aptSound').volume = '0';
+    for (var i = 0; i < Scene.scenesArray.length; i++) {
+      Scene.scenesArray[i].audio.volume = '0';
+    }
+    console.log('now muted');
     return isMuted = true;
   } else if (isMuted === true) {
     muteButton.src = 'img/unmuted.png';
+    document.getElementById('alarmClock').volume = '0.3';
+    document.getElementById('aptSound').volume = '0.3';
+    for (var i = 0; i < Scene.scenesArray.length; i++) {
+      Scene.scenesArray[i].audio.volume = '0.3';
+    }
+    console.log('now unmuted');
     return isMuted = false;
   }
 }
@@ -132,15 +143,17 @@ function toggleMute(event) {
 function updateUserName(e) {
   e.preventDefault();
   localStorage.clear();
+  console.log('ls clear');
   userName = nameInput.value;
   if (!userName) {
     return alert('You have to tell us your name friend!');
   }
   localStorage.setItem('userName', userName);
+  console.log(userName);
   e.target.reset();
   nameForm.style.display = 'none';
   apt.style.display = 'block';
-  if (isMuted === false){
+  if (isMuted === false) {
     document.getElementById('alarmClock').pause();
     document.getElementById('aptSound').play();
   }
@@ -168,14 +181,12 @@ function renderSceneP1() {
   optionButtons.style.display = 'block';
   nextSceneButton.style.display = 'none';
   scenes.style.backgroundImage = "linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%), url('" + Scene.scenesArray[currentScene].filepath + "')";
-  if (isMuted === false) {
-    if (currentScene > 0) {
+  if (currentScene > 0) {
       Scene.scenesArray[currentScene-1].audio.pause();
     } else {
       document.getElementById('aptSound').pause();
     }
     Scene.scenesArray[currentScene].audio.play();
-  }
   //pNarrative.textContent = Scene.scenesArray[currentScene].narrative;
   doTheThing(Scene.scenesArray[currentScene].narrative, 300);
   option1Button.textContent = Scene.scenesArray[currentScene].option1Text;
