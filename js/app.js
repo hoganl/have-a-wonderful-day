@@ -182,12 +182,11 @@ function renderSceneP1() {
   nextSceneButton.style.display = 'none';
   scenes.style.backgroundImage = "linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%), url('" + Scene.scenesArray[currentScene].filepath + "')";
   if (currentScene > 0) {
-      Scene.scenesArray[currentScene-1].audio.pause();
-    } else {
-      document.getElementById('aptSound').pause();
-    }
-    Scene.scenesArray[currentScene].audio.play();
-  //pNarrative.textContent = Scene.scenesArray[currentScene].narrative;
+    Scene.scenesArray[currentScene-1].audio.pause();
+  } else {
+    document.getElementById('aptSound').pause();
+  }
+  Scene.scenesArray[currentScene].audio.play();
   doTheThing(Scene.scenesArray[currentScene].narrative, 300);
   option1Button.textContent = Scene.scenesArray[currentScene].option1Text;
   option2Button.textContent = Scene.scenesArray[currentScene].option2Text;
