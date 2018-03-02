@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Have a Wonderful Day</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 </head>
@@ -22,29 +23,29 @@
         </nav>
     </header>
     <main>
-      <div id="mute">
-        <button><img src="img/unmuted.png" id="muteButton" title="MUTE"></button>
-      </div>
-            <form id="nameForm">
-                <canvas id="intro" width=1000>Welcome to Have a Wonderful Day!</canvas>
-                <p>Hello <input id="nameInput" type="text" autofocus >, it's time to start your day.</p>
-                <button id="wakeUp" type="submit">Wake Up!</button>
-            </form>
+        <div id="mute">
+            <button><img src="img/unmuted.png" id="muteButton" title="MUTE"></button>
+        </div>
+        <form id="nameForm">
+            <h1 id="welcome">Welcome to Have a Wonderful Day!</h1>
+            <p id="hello">Hello <input id="nameInput" type="text" autofocus >, it's time to start your day.</p>
+            <button id="wakeUp" type="submit">Wake Up!</button>
+        </form>
         <section class="story">
             <div id="apt">
                 <audio id="alarmClock" src="audio/alarm-beep-electronic.wav" autoplay></audio>
                 <audio id="aptSound" src="audio/ambience-city-morning.wav" volume=".3"></audio>
-                <canvas id="intro"></canvas>
+                <p id="intro"></p>
                 <button id="startButton" type="button">Start your day!</button>
                 <!-- <img id="tiredSprite" src="img/tired-sprite.jpg" /> -->
             </div>
             <div id="scenes">
               <div id ="canvas-text"></div>
-                <div id="optionButtons">
+                <div id="optionButtons" class="fade-in">
                     <button id="option1" type="button" name="option1"></button>
                     <button id="option2" type="button" name="option2"></button>
                 </div>
-                <button id="nextScene" type="button" name="nextScene">Next Scene</button>
+                <button id="nextScene" class ="fade-in-short" type="button" name="nextScene" >Next Scene</button>
                 <div id="spriteImgs">
                     <p></p>
                     <!-- <img id="happySprite" src="img/happy-sprite.jpg" />
@@ -53,11 +54,10 @@
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer></footer>
-
+    
     <script src="js/storyteller.js"></script>
     <script src="js/app.js"></script>
 </body>
