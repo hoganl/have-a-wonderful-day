@@ -87,3 +87,7 @@ footer {
     height: 100px;
     background-color: #EAC67A;
 }
+
+#summary1, #summary2, #summary3, #summary4, #summary5, #summary6 {
+    margin-bottom: 20px;
+}
