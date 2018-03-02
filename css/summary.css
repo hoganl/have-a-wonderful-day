@@ -37,7 +37,8 @@ h1 {
     font-size: 50px;
     color: #18121E;
     text-align: center;
-    font-family: 'Indie Flower', cursive
+    font-family: 'Indie Flower', cursive;
+    font-weight: bold;
 }
 
 nav a {
@@ -48,7 +49,7 @@ nav a {
     text-align:center;
     white-space:nowrap;
     padding: 10px;
-    font-family: 'Indie Flower', cursive
+    font-family: 'Indie Flower', cursive;
 }
 
 main {
@@ -70,6 +71,16 @@ h2 {
 p {
     font-size: 25px;
     font-family: 'Indie Flower', cursive
+}
+
+#restart, #friends {
+    padding: 20px;
+    font-size: 25px;
+}
+
+#restart:hover, #friends:hover {
+    background: #EAC67A;
+    color: #984B43;
 }
 
 footer {

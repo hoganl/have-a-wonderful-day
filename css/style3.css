@@ -53,6 +53,7 @@ nav a {
     text-align:center;
     white-space:nowrap;
     padding: 10px;
+    font-family: 'Indie Flower', cursive;
 }
 
 main {
@@ -60,7 +61,6 @@ main {
     width: 90%;
     margin: 0 auto;
     text-align: center;
-    font-family: Bradley Hand, cursive;
 }
 
 footer {
