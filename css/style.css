@@ -38,6 +38,7 @@ h1 {
     color: #18121E;
     text-align: center;
     font-family: 'Indie Flower', cursive;
+    font-weight: bold;
 }
 
 nav a, button {
@@ -103,6 +104,7 @@ main {
 #welcome {
     color: white;
     font-family: 'Indie Flower', cursive;
+    padding: 100px;
 }
 
 #nameForm {
@@ -117,10 +119,6 @@ main {
     font-family: 'Indie Flower', cursive;
 }
 
-#hello {
-    margin-top: 10%;
-}
-
 #hello input {
     height: 30px;
 }
@@ -130,6 +128,13 @@ main {
     color: black;
     height: 50px;
     width: 200px;
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+#wakeUp:hover {
+    background-color: black;
+    color: yellow;
 }
 
 .story {
@@ -147,9 +152,15 @@ main {
     width: 800px;
     font-size: 40px;
     margin: 0 auto;
-    padding-top: 200px;
+    padding-top: 100px;
     padding-bottom: 50px;
     font-family: 'Indie Flower', cursive;
+    line-height: 2.5;
+}
+
+#startButton {
+    padding: 35px;
+    font-size: 25px;
 }
 
 #scenes {
@@ -157,12 +168,26 @@ main {
     background-size: 100% 100%;
     background-repeat: no-repeat;
     height: 700px;
+    padding: 50px;
 }
 
 #nextScene {
-    display: none;
-    /* clear: both; */
-    /* float: right; */
+    margin: 0 auto;
+    padding: 35px;
+    font-size: 25px;
+    margin-top: 50px;
+}
+
+#option1, #option2 {
+    padding: 35px;
+    font-size: 25px;
+    margin-right: 50px;
+    margin-top: 50px;
+}
+
+#option1:hover, #option2:hover, #nextScene:hover, #startButton:hover {
+    background: #EAC67A;
+    color: #984B43;
 }
 
 footer {
